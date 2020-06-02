@@ -7,7 +7,7 @@
   <parent>
     <artifactId>alloy-parent</artifactId>
     <groupId>org.finos.alloy</groupId>
-    <version>1.0-SNAPSHOT</version>
+    <version>0.1-SNAPSHOT</version>
   </parent>
 
   <artifactId>alloy-server</artifactId>
@@ -24,7 +24,7 @@
     <dependency>
       <artifactId>alloy-ui</artifactId>
       <groupId>org.finos.alloy</groupId>
-      <version>1.0-SNAPSHOT</version>
+      <version>0.1-SNAPSHOT</version>
       <type>pom</type>
     </dependency>
 
