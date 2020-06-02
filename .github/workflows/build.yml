@@ -1,10 +1,5 @@
 name: alloy-build
 
-# Docs
-# - https://gist.github.com/faph/20331648cdc0b492eba0f4d83f69eaa5
-# - https://github.com/spotify/dockerfile-maven
-# - https://github.com/actions/setup-java
-
 env:
   CI_DEPLOY_USERNAME: ${{ secrets.CI_DEPLOY_USERNAME }}
   CI_DEPLOY_PASSWORD: ${{ secrets.CI_DEPLOY_PASSWORD }}
@@ -47,7 +42,9 @@ jobs:
         git config --global author.email "${GITHUB_ACTOR}@users.noreply.github.com"
         git config --global author.name "${GITHUB_ACTOR}"
     - name: Download deps and plugins
-      run: mvn de.qaware.maven:go-offline-maven-plugin:resolve-dependencies
+      run: |
+        cd build-sample
+        mvn de.qaware.maven:go-offline-maven-plugin:resolve-dependencies
     # TODO - enable when build is final
     # - name: Build + Test + Sonar
     #   if: github.ref != 'refs/heads/master'

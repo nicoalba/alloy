@@ -49,3 +49,18 @@ You must have `DOCKER_USERNAME` and `DOCKER_PASSWORD` environment variables set
 mvn release:prepare release:perform -Prelease
 ```
 See https://finosfoundation.atlassian.net/wiki/spaces/FDX/pages/75530322/Java#Java-Release
+
+## Continuous Integration (CI)
+CI is delivered by the[.github/build.yml](.github/build.yml) GitHub Action, which sequentially...
+- downloads all project dependencies and build plugins
+- runs the maven build and test
+- submits project quality metrics to SonarCube
+- creates the Docker images
+- deploys JARs to OSS Sonatype repo (if branch is `dev`)
+- deploys JARs to Maven Central (if branch is `master`)
+- runs Docker image push (if branch is `master`)
+
+# Links
+- https://gist.github.com/faph/20331648cdc0b492eba0f4d83f69eaa5
+- https://github.com/spotify/dockerfile-maven
+- https://github.com/actions/setup-java
