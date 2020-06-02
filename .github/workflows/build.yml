@@ -56,7 +56,8 @@ jobs:
         cd build-sample
         mvn install -Psonar,docker
     - name: Build + Test + Sonar + Maven/Docker Deploy
-      if: github.ref == 'refs/heads/master'
+      # TODO - set to master
+      if: github.ref == 'refs/heads/build'
       run: |
         cd build-sample
         mvn deploy -Psonar,docker
