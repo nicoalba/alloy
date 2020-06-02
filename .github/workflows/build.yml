@@ -3,6 +3,7 @@ name: alloy-build
 env:
   CI_DEPLOY_USERNAME: ${{ secrets.CI_DEPLOY_USERNAME }}
   CI_DEPLOY_PASSWORD: ${{ secrets.CI_DEPLOY_PASSWORD }}
+  SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
 on:
   push:
@@ -28,11 +29,11 @@ jobs:
       uses: actions/setup-java@v1
       with:
         java-version: 13
-    - name: Run mvn tests
+    - name: Run mvn tests (and submit metrics to sonarcloud.io)
       run: |
         cd build-sample
-        mvn test
+        mvn test -Psonar
     - name: Deploy SNAPSHOT version to oss.sonatype.org
       run: |
         cd build-sample
-        mvn deploy
+        mvn deploy -s settings.xml
