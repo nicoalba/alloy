@@ -37,7 +37,9 @@ jobs:
     - name: Deploy SNAPSHOT version to oss.sonatype.org (and submit metrics to sonarcloud.io)
       run: |
         cd build-sample
-        mvn deploy -Psonar
+        # TODO - fix deploy, fails with 401
+        # mvn deploy -Psonar
+        mvn install -Psonar
       env:
         MAVEN_USERNAME: ${{ secrets.CI_DEPLOY_USERNAME }}
         MAVEN_PASSWORD: ${{ secrets.CI_DEPLOY_PASSWORD }}
