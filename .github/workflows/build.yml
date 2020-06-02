@@ -50,7 +50,7 @@ jobs:
       run: |
         cd build-sample
         mvn install -Pdocker
-      - name: Build + Test + Sonar
+    - name: Build + Test + Sonar
       if: github.ref == 'refs/heads/dev'
       run: |
         cd build-sample
