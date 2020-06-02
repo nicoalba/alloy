@@ -1,0 +1,32 @@
+name: alloy-build
+
+on:
+  push:
+    branches:
+      - build
+    paths:
+      - '.github/workflows/build.yml'
+      - 'build-sample'
+  pull_request:
+    paths:
+      - '.github/workflows/build.yml'
+      - 'build-sample'
+
+env:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@v2
+    - name: Install Node
+      uses: actions/setup-node@v1
+    - name: Set up JDK
+      uses: actions/setup-java@v1
+      with:
+        java-version: 13
+    - name: Build with Maven
+      run: |
+        cd build-sample
+        mvn install
