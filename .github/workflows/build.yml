@@ -3,6 +3,7 @@ name: alloy-build
 env:
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+  DOCKER_HUB_TOKEN: ${{ secrets.DOCKER_HUB_TOKEN }}
 
 on:
   push:
@@ -29,8 +30,14 @@ jobs:
       with:
         java-version: 13
         server-id: ossrh
-        server-username: MAVEN_USERNAME
-        server-password: MAVEN_PASSWORD
+        server-username: CI_DEPLOY_USERNAME
+        server-password: CI_DEPLOY_PASSWORD
+    - name: Configure git
+      run: |
+        git config --global committer.email "infra@finos.org"
+        git config --global committer.name "FINOS Admin"
+        git config --global author.email "${GITHUB_ACTOR}@users.noreply.github.com"
+        git config --global author.name "${GITHUB_ACTOR}"
     - name: Run mvn tests
       run: |
         cd build-sample
@@ -42,5 +49,12 @@ jobs:
         # mvn deploy -Psonar
         mvn install -Psonar
       env:
-        MAVEN_USERNAME: ${{ secrets.CI_DEPLOY_USERNAME }}
-        MAVEN_PASSWORD: ${{ secrets.CI_DEPLOY_PASSWORD }}
+        CI_DEPLOY_USERNAME: ${{ secrets.CI_DEPLOY_USERNAME }}
+        CI_DEPLOY_PASSWORD: ${{ secrets.CI_DEPLOY_PASSWORD }}
+    - name: Deploy to Docker
+      run: |
+        mvn install -Psonar
+      env:
+        CI_DEPLOY_USERNAME: ${{ secrets.CI_DEPLOY_USERNAME }}
+        CI_DEPLOY_PASSWORD: ${{ secrets.CI_DEPLOY_PASSWORD }}
+  

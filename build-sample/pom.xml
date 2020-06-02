@@ -23,6 +23,11 @@
   <name>buildSample</name>
   <url>https://alloy.finos.org</url>
 
+  <scm>
+    <developerConnection>scm:git:https://github.com/finos/alloy</developerConnection>
+    <tag>HEAD</tag>
+  </scm>
+
   <repositories>
     <repository>
       <id>ossrh</id>
