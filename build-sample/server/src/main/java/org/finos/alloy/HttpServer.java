@@ -1,4 +1,4 @@
-package com.gs.alloy;
+package org.finos.alloy;
 
 import io.dropwizard.Application;
 import io.dropwizard.assets.AssetsBundle;

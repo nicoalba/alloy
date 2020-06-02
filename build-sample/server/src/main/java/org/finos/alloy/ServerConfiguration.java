@@ -1,4 +1,4 @@
-package com.gs.alloy;
+package org.finos.alloy;
 
 import io.dropwizard.Configuration;
 

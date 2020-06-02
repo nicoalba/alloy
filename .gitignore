@@ -1,4 +1,8 @@
 .DS_Store
+.vscode
+.settings
+.project
+.classpath
 
 node_modules
 

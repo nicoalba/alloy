@@ -4,9 +4,14 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>com.gs.alloy</groupId>
+  <parent>
+    <artifactId>buildSample</artifactId>
+    <groupId>org.finos.alloy</groupId>
+    <version>1.0-SNAPSHOT</version>
+  </parent>
+
+  <groupId>org.finos</groupId>
   <artifactId>server</artifactId>
-  <version>1.0-SNAPSHOT</version>
 
   <name>server</name>
   <!-- FIXME change it to the project's website -->
@@ -16,14 +21,14 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>1.7</maven.compiler.source>
     <maven.compiler.target>1.7</maven.compiler.target>
-    <mainClass>com.gs.alloy.HttpServer</mainClass>
+    <mainClass>org.finos.alloy.HttpServer</mainClass>
   </properties>
 
   <dependencies>
 
     <dependency>
       <artifactId>ui</artifactId>
-      <groupId>com.gs.alloy</groupId>
+      <groupId>org.finos.alloy</groupId>
       <version>1.0-SNAPSHOT</version>
       <type>pom</type>
     </dependency>

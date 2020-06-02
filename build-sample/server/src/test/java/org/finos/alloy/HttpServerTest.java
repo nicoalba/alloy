@@ -1,4 +1,4 @@
-package com.gs.alloy;
+package org.finos.alloy;
 
 import static org.junit.Assert.assertTrue;
 
