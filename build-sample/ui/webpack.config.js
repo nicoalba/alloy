@@ -23,7 +23,7 @@ module.exports = (env, arg) => ({
         path: path.join(__dirname, './target/dist'),
         // Add /* filename */ comments to generated require()s in the output.
         pathinfo: arg.mode === 'development',
-        publicPath: arg.mode === 'development' ? '/' : '/sample/',
+        publicPath: arg.mode === 'development' ? '/' : '/alloy/',
         filename: `${OUTPUT_STATIC_PATH}/` + rehash('[name].[contenthash].js', arg.mode)
     },
     devtool: arg.mode === 'development'
@@ -46,7 +46,7 @@ module.exports = (env, arg) => ({
         // the instance of the UI running on your machine via Desktop Service
         // If so, you might want to disable HTTPS as Desktop Service still uses HTTP.
         host: 'localhost/',
-        openPage: 'sample',
+        openPage: 'alloy',
         historyApiFallback: {
             disableDotRule: true
         },
@@ -177,7 +177,7 @@ module.exports = (env, arg) => ({
             chunkFilename: `${OUTPUT_STATIC_PATH}/` + rehash('[id].[contenthash].css', arg.mode)
         }),
         new CleanWebpackPlugin(),
-        new CopyWebpackPlugin(arg.webConfig ? [{ from: arg.webConfig, to: 'sample' }] : [])
+        new CopyWebpackPlugin(arg.webConfig ? [{ from: arg.webConfig, to: 'alloy' }] : [])
     ],
 
 });

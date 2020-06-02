@@ -5,12 +5,12 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <artifactId>buildSample</artifactId>
+    <artifactId>alloy-parent</artifactId>
     <groupId>org.finos.alloy</groupId>
     <version>1.0-SNAPSHOT</version>
   </parent>
 
-  <artifactId>server</artifactId>
+  <artifactId>alloy-server</artifactId>
 
   <properties>
     <!-- TODO - any reason for Java 7? -->
@@ -22,7 +22,7 @@
 
   <dependencies>
     <dependency>
-      <artifactId>ui</artifactId>
+      <artifactId>alloy-ui</artifactId>
       <groupId>org.finos.alloy</groupId>
       <version>1.0-SNAPSHOT</version>
       <type>pom</type>
@@ -100,7 +100,7 @@
               <goal>copy-resources</goal>
             </goals>
             <configuration>
-              <outputDirectory>${basedir}/target/resources/assets/sample</outputDirectory>
+              <outputDirectory>${basedir}/target/resources/assets/alloy</outputDirectory>
               <resources>
                 <resource>
                   <directory>${basedir}/../ui/target/dist</directory>

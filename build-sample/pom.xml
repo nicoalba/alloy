@@ -11,7 +11,7 @@
   </parent>
 
   <groupId>org.finos.alloy</groupId>
-  <artifactId>buildSample</artifactId>
+  <artifactId>alloy-parent</artifactId>
   <packaging>pom</packaging>
   <version>1.0-SNAPSHOT</version>
 
@@ -20,7 +20,7 @@
     <module>ui</module>
   </modules>
 
-  <name>buildSample</name>
+  <name>Alloy Parent POM</name>
   <url>https://alloy.finos.org</url>
 
   <scm>

@@ -6,12 +6,12 @@
     <packaging>pom</packaging>
     
     <parent>
-        <artifactId>buildSample</artifactId>
+        <artifactId>alloy-parent</artifactId>
         <groupId>org.finos.alloy</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>ui</artifactId>
+    <artifactId>alloy-ui</artifactId>
 
     <properties>
         <sonar.projectKey>alloy-ui</sonar.projectKey>
