@@ -1,5 +1,9 @@
 name: alloy-build
 
+env:
+  CI_DEPLOY_USERNAME: ${{ secrets.CI_DEPLOY_USERNAME }}
+  CI_DEPLOY_PASSWORD: ${{ secrets.CI_DEPLOY_PASSWORD }}
+
 on:
   push:
     branches:
@@ -24,7 +28,11 @@ jobs:
       uses: actions/setup-java@v1
       with:
         java-version: 13
-    - name: Build with Maven
+    - name: Run mvn tests
       run: |
         cd build-sample
-        mvn install
+        mvn test
+    - name: Deploy SNAPSHOT version to oss.sonatype.org
+      run: |
+        cd build-sample
+        mvn deploy
