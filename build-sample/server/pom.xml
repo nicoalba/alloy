@@ -114,7 +114,6 @@
   </build>
 
   <profiles>
-    <!-- TODO - add to finos parent pom -->
     <profile>
       <id>docker</id>
       <build>

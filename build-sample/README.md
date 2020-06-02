@@ -50,13 +50,24 @@ mvn deploy -Pdocker
 You must have `DOCKER_USERNAME` and `DOCKER_PASSWORD` environment variables set
 
 ### Release (TODO)
-```
-mvn release:prepare release:perform -Prelease
-```
-See https://finosfoundation.atlassian.net/wiki/spaces/FDX/pages/75530322/Java#Java-Release
+Make sure to:
+- Perform a successful `mvn deploy` from your workstation prior to a release
+- Have `gpg2` installed
+- Have the certificate passphrase at hand
+
+To release:
+1. Run `mvn release:prepare release:perform -Prelease`
+2. Access https://oss.sonatype.org/#stagingRepositories
+3. Select the repository and click on `Close`
+4. Check the `Activity` tab to check that all validations pass
+5. Wait 2 minutes
+6. Click on the `Refresh` button
+7. Click on the `Release` button
+
+For more info, visit [FINOS Wiki](https://finosfoundation.atlassian.net/wiki/spaces/FDX/pages/75530322/Java#Java-Release) and [Sonatype Wiki](https://central.sonatype.org/pages/releasing-the-deployment.html).
 
 ## Continuous Integration (CI)
-CI is delivered by the[.github/build.yml](.github/build.yml) GitHub Action, which sequentially...
+CI is delivered by the [build.yml](.github/build.yml) GitHub Action, which sequentially...
 - downloads all project dependencies and build plugins
 - runs the maven build and test
 - submits project quality metrics to SonarCube
