@@ -1,3 +1,8 @@
+[![Maven Central](https://img.shields.io/maven-central/v/org.finos.alloy/alloy.svg?maxAge=2592000)](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22alloy%22)
+![Build](https://github.com/finos/alloy/workflows/alloy-build/badge.svg)
+![Docs](https://github.com/finos/alloy/workflows/Docusaurus-website-build/badge.svg)
+[![FINOS - Incubating](https://cdn.jsdelivr.net/gh/finos/contrib-toolbox@master/images/badge-incubating.svg)](https://finosfoundation.atlassian.net/wiki/display/FINOS/Archived)
+
 # Alloy Build (DRAFT)
 
 *TODO: move this content to main readme, when completed*
