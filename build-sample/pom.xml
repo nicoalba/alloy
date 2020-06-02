@@ -22,6 +22,17 @@
   <name>buildSample</name>
   <url>https://alloy.finos.org</url>
 
+  <repositories>
+    <repository>
+      <id>ossrh</id>
+      <name>OSSRH Public Group</name>
+      <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+    </repository>
+  </repositories>
+
   <build>
     <plugins>
       <plugin>
