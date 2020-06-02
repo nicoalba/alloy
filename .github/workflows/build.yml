@@ -1,8 +1,6 @@
 name: alloy-build
 
 env:
-  CI_DEPLOY_USERNAME: ${{ secrets.CI_DEPLOY_USERNAME }}
-  CI_DEPLOY_PASSWORD: ${{ secrets.CI_DEPLOY_PASSWORD }}
   SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
 on:
@@ -36,4 +34,6 @@ jobs:
     - name: Deploy SNAPSHOT version to oss.sonatype.org (and submit metrics to sonarcloud.io)
       run: |
         cd build-sample
+        export CI_DEPLOY_USERNAME="${{ secrets.CI_DEPLOY_USERNAME }}"
+        export CI_DEPLOY_PASSWORD="${{ secrets.CI_DEPLOY_PASSWORD }}"
         mvn deploy -Psonar -s settings.xml
