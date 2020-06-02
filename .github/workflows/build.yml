@@ -6,11 +6,11 @@ on:
       - build
     paths:
       - '.github/workflows/build.yml'
-      - 'build-sample'
+      - 'build-sample/**'
   pull_request:
     paths:
       - '.github/workflows/build.yml'
-      - 'build-sample'
+      - 'build-sample/**'
 
 jobs:
   build:
