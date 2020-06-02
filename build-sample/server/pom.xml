@@ -143,7 +143,11 @@
                 </execution>
             </executions>
             <configuration>
-              <repository>finos/alloy</repository>
+              <username>${env.DOCKER_USERNAME}</username>
+              <password>${env.DOCKER_PASSWORD}</password>
+              <!-- TODO - enable when build is final -->
+              <!-- <repository>registry.hub.docker.com/${env.DOCKER_USERNAME}/${project.artifactId}</repository> -->
+              <repository>registry.hub.docker.com/${env.DOCKER_USERNAME}/alloy-sample-build</repository>
               <tag>${project.version}</tag>
               <buildArgs>
                 <JAR_FILE>${project.build.finalName}.jar</JAR_FILE>

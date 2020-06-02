@@ -5,6 +5,14 @@ name: alloy-build
 # - https://github.com/spotify/dockerfile-maven
 # - https://github.com/actions/setup-java
 
+env:
+  CI_DEPLOY_USERNAME: ${{ secrets.CI_DEPLOY_USERNAME }}
+  CI_DEPLOY_PASSWORD: ${{ secrets.CI_DEPLOY_PASSWORD }}
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+  DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+  DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+
 on:
   push:
     branches:
@@ -38,20 +46,17 @@ jobs:
         git config --global committer.name "FINOS Admin"
         git config --global author.email "${GITHUB_ACTOR}@users.noreply.github.com"
         git config --global author.name "${GITHUB_ACTOR}"
-    - name: Run mvn tests
+    - name: Download deps and plugins
+      run: mvn de.qaware.maven:go-offline-maven-plugin:resolve-dependencies
+    # TODO - enable when build is final
+    # - name: Build + Test + Sonar
+    #   if: github.ref != 'refs/heads/master'
+    #   run: |
+    #     cd build-sample
+    #     mvn install -Psonar,docker
+    - name: Build + Test + Sonar + Maven/Docker Deploy
+      # if: github.ref == 'refs/heads/master'
       run: |
         cd build-sample
-        mvn test
-    - name: Deploy SNAPSHOT version to oss.sonatype.org (and submit metrics to sonarcloud.io)
-      run: |
-        cd build-sample
-        # TODO - fix deploy, fails with 401
         mvn deploy -Psonar,docker
-        # mvn install -Psonar,docker
-      env:
-        CI_DEPLOY_USERNAME: ${{ secrets.CI_DEPLOY_USERNAME }}
-        CI_DEPLOY_PASSWORD: ${{ secrets.CI_DEPLOY_PASSWORD }}
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        DOCKER_HUB_TOKEN: ${{ secrets.DOCKER_HUB_TOKEN }}        
   
