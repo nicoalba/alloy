@@ -13,14 +13,11 @@
   <groupId>org.finos</groupId>
   <artifactId>server</artifactId>
 
-  <name>server</name>
-  <!-- FIXME change it to the project's website -->
-  <url>http://www.example.com</url>
-
   <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <maven.compiler.source>1.7</maven.compiler.source>
-    <maven.compiler.target>1.7</maven.compiler.target>
+    <!-- TODO - any reason for Java 7? -->
+    <!-- <maven.compiler.source>1.7</maven.compiler.source>
+    <maven.compiler.target>1.7</maven.compiler.target> -->
+    <sonar.projectKey>alloy-server</sonar.projectKey>
     <mainClass>org.finos.alloy.HttpServer</mainClass>
   </properties>
 

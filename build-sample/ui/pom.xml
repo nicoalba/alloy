@@ -13,6 +13,10 @@
     <packaging>pom</packaging>
     <artifactId>ui</artifactId>
 
+    <properties>
+        <sonar.projectKey>alloy-ui</sonar.projectKey>
+      </properties>
+    
     <build>
         <plugins>
             <plugin>
