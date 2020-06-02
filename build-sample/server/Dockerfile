@@ -1,4 +1,4 @@
-FROM openjdk:13-jre
+FROM openjdk:13
 MAINTAINER Maurizio Pillitu <maoo@finos.org>
 
 ENTRYPOINT ["/usr/bin/java", "-jar", "/usr/share/myservice/myservice.jar"]
