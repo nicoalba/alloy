@@ -29,11 +29,11 @@ jobs:
       uses: actions/setup-java@v1
       with:
         java-version: 13
-    - name: Run mvn tests (and submit metrics to sonarcloud.io)
+    - name: Run mvn tests
       run: |
         cd build-sample
-        mvn test -Psonar
-    - name: Deploy SNAPSHOT version to oss.sonatype.org
+        mvn test
+    - name: Deploy SNAPSHOT version to oss.sonatype.org (and submit metrics to sonarcloud.io)
       run: |
         cd build-sample
-        mvn deploy -s settings.xml
+        mvn deploy -Psonar -s settings.xml
