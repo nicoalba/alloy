@@ -3,7 +3,7 @@
 ![Docs](https://github.com/finos/alloy/workflows/Docusaurus-website-build/badge.svg)
 [![FINOS - Incubating](https://cdn.jsdelivr.net/gh/finos/contrib-toolbox@master/images/badge-incubating.svg)](https://finosfoundation.atlassian.net/wiki/display/FINOS/Archived)
 
-# Alloy Build (DRAFT)
+# Alloy Build (SAMPLE)
 
 *TODO: move this content to main readme, when completed*
 
@@ -15,8 +15,8 @@ The alloy project builds with Apache Maven, which takes care of:
 - Send testing metrics to https://sonarcloud.io/code?id=org.finos.alloy%3Aalloy-parent
 - Deploy snapshot JARs to https://oss.sonatype.org/#nexus-search;quick~org.finos.alloy
 - Release Docker image to https://hub.docker.com/u/finos
-- Deploy released JARs to Maven Central (TODO)
-- Run a release process that invoke all steps above in a transactional fashion (TODO)
+- Deploy released JARs to Maven Central
+- Run a release process that invoke all steps above in a transactional fashion
 
 ## Requisites
 1. Please follow https://finosfoundation.atlassian.net/wiki/spaces/FDX/pages/75530342/Continuous+Integration#ContinuousIntegration-Continuous(artifact)deploymentinJava to get credentials for oss.sonatype.org and consequentially Maven Central.
@@ -49,7 +49,7 @@ mvn deploy -Pdocker
 ```
 You must have `DOCKER_USERNAME` and `DOCKER_PASSWORD` environment variables set
 
-### Release (TODO)
+### Release
 Make sure to:
 - Perform a successful `mvn deploy` from your workstation prior to a release
 - Have `gpg2` installed
