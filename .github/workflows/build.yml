@@ -45,14 +45,18 @@ jobs:
       run: |
         cd build-sample
         mvn de.qaware.maven:go-offline-maven-plugin:resolve-dependencies
-    # TODO - enable when build is final
-    # - name: Build + Test + Sonar
-    #   if: github.ref != 'refs/heads/master'
-    #   run: |
-    #     cd build-sample
-    #     mvn install -Psonar,docker
+    - name: Build + Test
+      if: github.ref != 'refs/heads/dev' && github.ref != 'refs/heads/master'
+      run: |
+        cd build-sample
+        mvn install -Pdocker
+      - name: Build + Test + Sonar
+      if: github.ref == 'refs/heads/dev'
+      run: |
+        cd build-sample
+        mvn install -Psonar,docker
     - name: Build + Test + Sonar + Maven/Docker Deploy
-      # if: github.ref == 'refs/heads/master'
+      if: github.ref == 'refs/heads/master'
       run: |
         cd build-sample
         mvn deploy -Psonar,docker
