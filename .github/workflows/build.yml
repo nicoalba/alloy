@@ -52,7 +52,7 @@ jobs:
       if: github.ref == 'refs/heads/dev'
       run: |
         cd build-sample
-        mvn install -Psonar,docker
+        mvn deploy -Psonar,docker
     - name: Build + Test + Sonar + Maven/Docker Deploy
       # TODO - set to master
       if: github.ref == 'refs/heads/build'
