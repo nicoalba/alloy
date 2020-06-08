@@ -24,6 +24,18 @@ jobs:
     steps:
     - name: Checkout repo
       uses: actions/checkout@v2
+    - name: Cache Maven dependencies
+      uses: actions/cache@v2
+      env:
+        cache-name: cache-node-modules
+      with:
+        # npm cache files are stored in `~/.npm` on Linux/macOS
+        path: ~/.m2
+        key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/pom.xml') }}
+        restore-keys: |
+          ${{ runner.os }}-build-${{ env.cache-name }}-
+          ${{ runner.os }}-build-
+          ${{ runner.os }}-
     - name: Install Node
       uses: actions/setup-node@v1
     - name: Set up JDK
