@@ -143,9 +143,9 @@ b) GitHub forces you to set the email address as public, or it would reject push
 <li><a href="https://yarnpkg.com/lang/en/docs/install">Yarn installed</a>.</li>
 </ul>
 <p>The following code automatically launches a browser and takes you to the staging website, located at <a href="http://localhost:3000">http://localhost:3000</a>. File changes are live rendered, speeding up the editorial workflow.</p>
-<pre><code class="hljs css language-git">git <span class="hljs-keyword">clone</span> <span class="hljs-title">git</span>@github.com:<span class="hljs-tag">&lt;yourfork&gt;</span>/purealloy.git
+<pre><code class="hljs css language-git">git <span class="hljs-keyword">clone</span> <span class="hljs-title">git</span>@github.com:<span class="hljs-tag">&lt;yourfork&gt;</span>/legend.git
 git checkout -b feature/myProposedDocChanges
-cd purealloy ; ./build-site.sh
+cd legend ; ./build-site.sh
 cd website ; yarn <span class="hljs-literal">start</span>
 </code></pre>
 <p><strong>Note:</strong> The <code>build-site.sh</code> script pulls content from other Git repositories, mapping the <code>docs</code> folder into <code>modules/&lt;repository-name&gt;</code>. For example, all files and folders under <a href="https://gitlab.com/finosfoundation/purealloy-modeling-samples/tree/master/docs">https://gitlab.com/finosfoundation/purealloy-modeling-samples/tree/master/docs</a> are available under the <code>/models/purealloy-modeling-samples</code> URL suffix.</p>
